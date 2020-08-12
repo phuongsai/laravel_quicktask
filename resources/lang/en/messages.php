@@ -23,4 +23,11 @@ return [
         'msg_notify_problem' => 'If you did not receive the email',
         'msg_request_another' => 'click here to request another',
     ],
+    'datatable' => [
+        'no_index' => '#',
+        'name' => 'Name',
+        'created_at' => 'Created at',
+        'updated_at' => 'Updated at',
+        'action' => 'Action',
+    ],
 ];

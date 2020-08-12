@@ -20,3 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// CRUD Task
+Route::get('/task', [
+    'uses' => 'TaskController@index',
+    'as' => 'task.index',
+    'middleware' => 'auth',
+]);

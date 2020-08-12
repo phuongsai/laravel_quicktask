@@ -10,18 +10,16 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- JQuery script -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+    <!-- CSS file(s) -->
+    @stack('css')
 </head>
 <body>
     <div id="app">
@@ -76,7 +74,6 @@
     </div>
 </body>
 
-<!-- ajax logout script file -->
-<script src="{{ asset('js/ajaxLogout.js') }}"></script>
-
+<!-- JavaScript file(s) -->
+@stack('js')
 </html>

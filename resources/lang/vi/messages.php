@@ -23,4 +23,11 @@ return [
         'msg_notify_problem' => 'Nếu bạn không nhận được email',
         'msg_request_another' => 'nhấn vào đây để gửi yêu cầu khác',
     ],
+    'datatable' => [
+        'no_index' => '#',
+        'name' => 'Tên',
+        'created_at' => 'Thời gian tạo',
+        'updated_at' => 'Thời gian cập nhật',
+        'action' => 'Thao tác',
+    ],
 ];
