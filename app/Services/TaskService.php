@@ -38,4 +38,40 @@ class TaskService implements TaskServiceInterface
 
         return $this->taskRepository->delete($task);
     }
+
+    // create a record
+    public function storeRecord($request)
+    {
+        try {
+            $request = array_merge($request, ['user_id' => Auth::user()->id]);
+        } catch (\Exception $e) {
+            return redirect()->route('login');
+        }
+
+        return $this->taskRepository->ajaxStore($request);
+    }
+
+    // get all trash records
+    public function getAllTrashed()
+    {
+        try {
+            $userId = Auth::user()->id;
+
+            return $this->taskRepository->getAllTrashed($userId);
+        } catch (\Exception $e) {
+            return redirect()->route('login');
+        }
+    }
+
+    // permanently delete
+    public function forceDelete($taskId)
+    {
+        return $this->taskRepository->forceDeleteRecord($taskId);
+    }
+
+    // restore trash record
+    public function restoreTrash($taskId)
+    {
+        return $this->taskRepository->restoreDeletedRecord($taskId);
+    }
 }
