@@ -27,3 +27,36 @@ Route::get('/task', [
     'as' => 'task.index',
     'middleware' => 'auth',
 ]);
+
+// JSON response
+Route::group(['prefix' => 'api/task', 'as' => 'task.', 'middleware' => 'auth'], function () {
+    Route::post('/store', [
+        'uses' => 'TaskController@store',
+        'as' => 'store',
+    ]);
+
+    Route::get('/edit/{task}', [
+        'uses' => 'TaskController@edit',
+        'as' => 'edit',
+    ]);
+
+    Route::delete('/delete/{task}', [
+        'uses' => 'TaskController@destroy',
+        'as' => 'delete',
+    ]);
+
+    Route::delete('/forceDelete/{task}', [
+        'uses' => 'TaskController@forceDelete',
+        'as' => 'forceDelete',
+    ]);
+
+    Route::patch('/restoreTrash/{task}', [
+        'uses' => 'TaskController@restoreTrash',
+        'as' => 'restoreTrash',
+    ]);
+
+    Route::get('/trash', [
+        'uses' => 'TaskController@getTrashRecords',
+        'as' => 'trash',
+    ]);
+});

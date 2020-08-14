@@ -21,4 +21,19 @@ interface TaskRepositoryInterface
 
     // delete record
     public function delete($object);
+
+    // insert or update record
+    public function ajaxStore($request);
+
+    // find only trashed record
+    public function findOnlyTrashedRecord($taskId);
+
+    // get all trash records
+    public function getAllTrashed($userId);
+
+    // permanently delete
+    public function forceDeleteRecord($taskId);
+
+    // restore trash record
+    public function restoreDeletedRecord($taskId);
 }

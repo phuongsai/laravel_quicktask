@@ -30,4 +30,32 @@ return [
         'updated_at' => 'Updated at',
         'action' => 'Action',
     ],
+    'task' => [
+        'btn_add' => 'Add',
+        'btn_back' => 'Back',
+        'btn_trash' => 'Trash',
+        'success' => 'Success!',
+        'success_delete' => 'Successfully deleted!',
+        'success_restore' => 'Successfully restored!',
+        'validate' => [
+            'name' => [
+                'required' => 'Name is required!',
+                'min' => 'Minimum length is 2!',
+                'max' => 'Maximum length is 255!',
+            ],
+            'description' => [
+                'max' => 'Maximum length is 255!',
+            ],
+        ],
+    ],
+    'modal' => [
+        'name' => 'Task Name',
+        'description' => 'Task Description',
+        'confirm_label' => 'Confirmation',
+        'confirm_title' => 'Are you sure you want to remove this data?',
+        'btn_close' => 'Close',
+        'btn_save' => 'Save',
+        'btn_ok' => 'Ok',
+        'btn_cancel' => 'Cancel',
+    ],
 ];

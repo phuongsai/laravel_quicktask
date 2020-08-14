@@ -80,6 +80,64 @@ class TaskRepository implements TaskRepositoryInterface
         }
     }
 
+    // insert or update record
+    public function ajaxStore($request)
+    {
+        try {
+            if (isset($request['task_id'])) {
+                $task = $this->getById($request['task_id']);
+
+                return $this->update($request, $task);
+            }
+
+            return $this->create($request);
+        } catch (\Exception $e) {
+            return $this->queryResult($e->getMessage());
+        }
+    }
+
+    // find only trashed record
+    public function findOnlyTrashedRecord($taskId)
+    {
+        return $this->model->onlyTrashed()->findOrFail($taskId);
+    }
+
+    // get all trash records
+    public function getAllTrashed($userId)
+    {
+        try {
+            $data = $this->model::select('*')->owner($userId)->onlyTrashed();
+
+            return DataTables::of($data)->addIndexColumn()->toJson();
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    // permanently delete
+    public function forceDeleteRecord($taskId)
+    {
+        try {
+            $task = $this->findOnlyTrashedRecord($taskId);
+
+            return $task->forceDelete();
+        } catch (\Exception $e) {
+            return $this->queryResult($e->getMessage());
+        }
+    }
+
+    // restore trash record
+    public function restoreDeletedRecord($taskId)
+    {
+        try {
+            $task = $this->findOnlyTrashedRecord($taskId);
+
+            return $task->restore();
+        } catch (\Exception $e) {
+            return $this->queryResult($e->getMessage());
+        }
+    }
+
     // return exception error message
     private function queryResult($msg = null)
     {

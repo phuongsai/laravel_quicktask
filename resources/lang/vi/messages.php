@@ -30,4 +30,32 @@ return [
         'updated_at' => 'Thời gian cập nhật',
         'action' => 'Thao tác',
     ],
+    'task' => [
+        'btn_add' => 'Thêm',
+        'btn_back' => 'Trở lại',
+        'btn_trash' => 'Thùng rác',
+        'success' => 'Thành công!',
+        'success_delete' => 'Xóa thành công!',
+        'success_restore' => 'Phục hồi thành công!',
+        'validate' => [
+            'name' => [
+                'required' => 'Yêu cầu nhập tên!',
+                'min' => 'Tối thiểu 2 ký tự!',
+                'max' => 'Tối đa 255 ký tự!',
+            ],
+            'description' => [
+                'max' => 'Tối đa 255 ký tự!',
+            ],
+        ],
+    ],
+    'modal' => [
+        'name' => 'Tên Task',
+        'description' => 'Mô tả Task',
+        'confirm_label' => 'Xác nhận',
+        'confirm_title' => 'Bạn chắc chắn muốn xóa?',
+        'btn_close' => 'Đóng',
+        'btn_save' => 'Lưu',
+        'btn_ok' => 'Ok',
+        'btn_cancel' => 'Hủy',
+    ],
 ];
